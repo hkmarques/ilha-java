@@ -1,7 +1,7 @@
 import dev.herick.ilhajava.CLI;
-import dev.herick.ilhajava.dominio.Rota;
+import dev.herick.ilhajava.dominio.Percurso;
 import dev.herick.ilhajava.excecoes.RotaInexistenteException;
-import dev.herick.ilhajava.utils.CriterioRota;
+import dev.herick.ilhajava.utils.CriterioPercurso;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,45 +36,45 @@ public class CenarioExemploTests {
 
     @Test
     public void distanciaABC() {
-        int obtida = cli.getDistancia(Rota.nova("A", "B", "C"));
+        int obtida = cli.getDistancia(Percurso.novo("A", "B", "C"));
         assertEquals(9, obtida);
     }
 
     @Test
     public void distanciaAD() {
-        int obtida = cli.getDistancia(Rota.nova("A", "D"));
+        int obtida = cli.getDistancia(Percurso.novo("A", "D"));
         assertEquals(5, obtida);
     }
 
     @Test
     public void distanciaADC() {
-        int obtida = cli.getDistancia(Rota.nova("A", "D", "C"));
+        int obtida = cli.getDistancia(Percurso.novo("A", "D", "C"));
         assertEquals(13, obtida);
     }
 
     @Test
     public void distanciaAEBCD() {
-        int obtida = cli.getDistancia(Rota.nova("A", "E", "B", "C", "D"));
+        int obtida = cli.getDistancia(Percurso.novo("A", "E", "B", "C", "D"));
         assertEquals(22, obtida);
     }
 
     @Test
     public void distanciaAED() {
         thrown.expect(RotaInexistenteException.class);
-        cli.getDistancia(Rota.nova("A", "E", "D"));
+        cli.getDistancia(Percurso.novo("A", "E", "D"));
     }
 
     @Test
     public void inicioFimCMax3Paradas() {
-        CriterioRota criterio = CriterioRota.inicio("C").fim("C").maximoParadas(3);
-        int obtidas = cli.getNumeroDeRotas(criterio);
+        CriterioPercurso criterio = CriterioPercurso.inicio("C").fim("C").maximoParadas(3);
+        int obtidas = cli.getNumeroDePercursos(criterio);
         assertEquals(2, obtidas);
     }
 
     @Test
     public void inicioAFimC4Paradas() {
-        CriterioRota criterio = CriterioRota.inicio("A").fim("C").paradasExatas(4);
-        int obtidas = cli.getNumeroDeRotas(criterio);
+        CriterioPercurso criterio = CriterioPercurso.inicio("A").fim("C").paradasExatas(4);
+        int obtidas = cli.getNumeroDePercursos(criterio);
         assertEquals(3, obtidas);
     }
 
@@ -91,9 +91,9 @@ public class CenarioExemploTests {
     }
 
     @Test
-    public void numeroRotasCCdistanciaMenorQue30() {
-        CriterioRota criterio = CriterioRota.inicio("C").fim("C").distanciaMenorQue(30);
-        int obtidas = cli.getNumeroDeRotas(criterio);
+    public void numeroPercursosCCdistanciaMenorQue30() {
+        CriterioPercurso criterio = CriterioPercurso.inicio("C").fim("C").distanciaMenorQue(30);
+        int obtidas = cli.getNumeroDePercursos(criterio);
         assertEquals(7, obtidas);
     }
     

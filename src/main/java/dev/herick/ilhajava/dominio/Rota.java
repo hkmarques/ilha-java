@@ -5,21 +5,9 @@ package dev.herick.ilhajava.dominio;
  */
 public class Rota {
 
-    private String[] paradas;
-
     private int distancia;
-
-    /**
-     * Instancia uma rota com as paradas informadas.
-     *
-     * @param paradas   as paradas contidas na rota, em ordem direta
-     * @return          a rota instanciada, contendo as paradas informadas
-     */
-    public static Rota nova(String... paradas) {
-        Rota rota = new Rota();
-        rota.paradas = paradas;
-        return rota;
-    }
+    private String inicio;
+    private String fim;
 
     /**
      * Instancia uma rota entre as províncias informadas, definindo a distância.
@@ -31,9 +19,26 @@ public class Rota {
      */
     public static Rota nova(String inicio, String fim, int distancia) {
         Rota rota = new Rota();
-        rota.paradas  = new String[] {inicio, fim};
         rota.distancia = distancia;
+        rota.inicio = inicio;
+        rota.fim = fim;
         return rota;
     }
+
+    // region # Getters e setters
+
+    public int getDistancia() {
+        return distancia;
+    }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public String getFim() {
+        return fim;
+    }
+
+    // endregion
 
 }

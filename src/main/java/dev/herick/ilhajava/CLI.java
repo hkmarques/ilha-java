@@ -1,7 +1,8 @@
 package dev.herick.ilhajava;
 
+import dev.herick.ilhajava.dominio.Percurso;
 import dev.herick.ilhajava.dominio.Rota;
-import dev.herick.ilhajava.utils.CriterioRota;
+import dev.herick.ilhajava.utils.CriterioPercurso;
 
 import java.util.ArrayList;
 
@@ -17,31 +18,32 @@ public class CLI {
     }
 
     /**
-     * Calcula e retorna a distância para a rota informada.
+     * Calcula e retorna a distância para o percurso informado.
      *
-     * @param rota  a rota cuja distância será calculada
-     * @return      a distância da rota informada
+     * @param percurso  o percurso cuja distância será calculada
+     * @return          a distância do percurso informado
      */
-    public int getDistancia(Rota rota) {
+    public int getDistancia(Percurso percurso) {
+
         return 0;
     }
 
     /**
-     * Calcula e retorna o número de rotas existentes para o critério informado.
+     * Calcula e retorna o número de percursos existentes para o critério informado.
      *
-     * @param criterio  o critério a ser usado na busca de rotas
-     * @return          o número de rotas encontradas para o critério informado
+     * @param criterio  o critério a ser usado na busca de percursos
+     * @return          o número de percursos encontrados para o critério informado
      */
-    public int getNumeroDeRotas(CriterioRota criterio) {
+    public int getNumeroDePercursos(CriterioPercurso criterio) {
         return 0;
     }
 
     /**
-     * Calcula a distância da rota mais curta entre os pontos informados.
+     * Calcula a distância do percurso mais curto entre os pontos informados.
      *
      * @param inicio    o ponto de início
      * @param fim       o último ponto de parada
-     * @return          a distância da rota mais curta encontrada
+     * @return          a distância do menor percurso encontrado
      */
     public int getDistanciaMaisCurta(String inicio, String fim) {
         return 0;
