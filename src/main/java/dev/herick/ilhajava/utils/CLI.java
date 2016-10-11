@@ -1,9 +1,8 @@
-package dev.herick.ilhajava;
+package dev.herick.ilhajava.utils;
 
 import dev.herick.ilhajava.dominio.Percurso;
 import dev.herick.ilhajava.dominio.Rota;
 import dev.herick.ilhajava.excecoes.RotaInexistenteException;
-import dev.herick.ilhajava.utils.CriterioPercurso;
 
 import java.util.ArrayList;
 

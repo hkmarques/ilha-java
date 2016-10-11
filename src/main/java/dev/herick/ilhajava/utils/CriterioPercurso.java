@@ -5,6 +5,12 @@ package dev.herick.ilhajava.utils;
  */
 public class CriterioPercurso {
 
+    private String inicio;
+    private String fim;
+    private int maximoParadas;
+    private int paradasExatas;
+    private int limiteSuperiorDistancia;
+
     /**
      * Construtor privado, critério deve ser instanciado usando o método de início.
      */
@@ -19,6 +25,7 @@ public class CriterioPercurso {
      */
     public static CriterioPercurso inicio(String provincia) {
         CriterioPercurso criterio = new CriterioPercurso();
+        criterio.inicio = provincia;
         return criterio;
     }
 
@@ -29,6 +36,7 @@ public class CriterioPercurso {
      * @return          este critério
      */
     public CriterioPercurso fim(String provincia) {
+        this.fim = provincia;
         return this;
     }
 
@@ -39,6 +47,7 @@ public class CriterioPercurso {
      * @return          este critério
      */
     public CriterioPercurso maximoParadas(int maximo) {
+        this.maximoParadas = maximo;
         return this;
     }
 
@@ -49,6 +58,7 @@ public class CriterioPercurso {
      * @return              este critério
      */
     public CriterioPercurso paradasExatas(int paradasExatas) {
+        this.paradasExatas = paradasExatas;
         return this;
     }
 
@@ -59,6 +69,7 @@ public class CriterioPercurso {
      * @return                  este critério
      */
     public CriterioPercurso distanciaMenorQue(int limiteSuperior) {
+        this.limiteSuperiorDistancia = limiteSuperior;
         return null;
     }
 

@@ -1,4 +1,4 @@
-import dev.herick.ilhajava.CLI;
+import dev.herick.ilhajava.utils.CLI;
 import dev.herick.ilhajava.dominio.Percurso;
 import dev.herick.ilhajava.excecoes.RotaInexistenteException;
 import dev.herick.ilhajava.utils.CriterioPercurso;
