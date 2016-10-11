@@ -23,6 +23,15 @@ public class CenarioExemploTests {
     @Before
     public void setUp() {
         cli = new CLI();
+        cli.adicionarRota("B", "C", 4);
+        cli.adicionarRota("A", "D", 5);
+        cli.adicionarRota("D", "C", 8);
+        cli.adicionarRota("C", "D", 8);
+        cli.adicionarRota("D", "E", 6);
+        cli.adicionarRota("C", "E", 2);
+        cli.adicionarRota("A", "E", 7);
+        cli.adicionarRota("E", "B", 3);
+        cli.adicionarRota("A", "B", 5);
     }
 
     @Test
