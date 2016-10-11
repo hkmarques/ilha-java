@@ -2,6 +2,7 @@ package dev.herick.ilhajava;
 
 import dev.herick.ilhajava.dominio.Percurso;
 import dev.herick.ilhajava.dominio.Rota;
+import dev.herick.ilhajava.excecoes.RotaInexistenteException;
 import dev.herick.ilhajava.utils.CriterioPercurso;
 
 import java.util.ArrayList;
@@ -24,8 +25,29 @@ public class CLI {
      * @return          a distância do percurso informado
      */
     public int getDistancia(Percurso percurso) {
+        String[] paradas = percurso.getParadas();
+        int distancia = 0;
+        int nRotasPossiveis = this.rotasPossiveis.size();
+        for (int iParadas = 0, tam = paradas.length - 1; iParadas < tam; iParadas++) {
+            String paradaAtual = paradas[iParadas];
+            String proximaParada = paradas[iParadas + 1];
+            Rota rotaExistente = null;
+            for (int iRotasPossiveis = 0; iRotasPossiveis < nRotasPossiveis; iRotasPossiveis++) {
+                if (this.rotasPossiveis.get(iRotasPossiveis).getInicio().equals(paradaAtual)
+                        && this.rotasPossiveis.get(iRotasPossiveis).getFim().equals(proximaParada)) {
+                    rotaExistente = this.rotasPossiveis.get(iRotasPossiveis);
+                    break;
+                }
+            }
 
-        return 0;
+            if (rotaExistente == null) {
+                throw new RotaInexistenteException();
+            }
+
+            distancia += rotaExistente.getDistancia();
+        }
+
+        return distancia;
     }
 
     /**
